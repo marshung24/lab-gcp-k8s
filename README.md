@@ -19,6 +19,7 @@
 
 
 # 參考
+- [GKE overview](https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview)
 - [Quickstarts-Deploy an app to a GKE cluster](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)
 - [Google Kubernetes Engine - GitHub Actions](https://github.com/google-github-actions/setup-gcloud/tree/main/example-workflows/gke)
 - [GCP - 使用 Github Actions 部署 React 到 GKE](https://dotblogs.com.tw/explooosion/2020/10/10/040358)
@@ -29,3 +30,15 @@ gcloud container clusters get-credentials hello-cluster \
     --region asia-east1
 
 https://console.cloud.google.com/flows/enableapi?apiid=containerregistry.googleapis.com,container.googleapis.com&authuser=1&project=firm-streamer-339509
+
+
+
+
+- 問題：
+  - GKE Load Balance
+    - 拿掉http
+    - 參數試調
+      - 安全資料傳輸層 (SSL) 政策
+    - 多主機
+    - 固定IP
+  - namespace

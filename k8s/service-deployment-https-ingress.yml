@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gke-portal-vue-service
+spec:
+  selector:
+    app: gke-portal-vue
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gke-portal-vue-service-ingress
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: "nueip-com"
+#  namespace: portal-vue
+spec:
+  rules:
+  - host: portal.nueip.com
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        backend:
+          service:
+            name: gke-portal-vue-service
+            port: 
+              number: 80
