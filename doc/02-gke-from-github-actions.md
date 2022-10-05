@@ -22,10 +22,19 @@ GKE From Github Actions
 - Setting => Actions => Runners
 
 ## 建立環境變數
+- Setting => Environments => New environment
+  - Environment secrets
+    - DEPLOYMENT_NAME
+    - GKE_CLUSTER
+    - GKE_ZONE
 
 
 ## 建立密鑰變數
-
+- Setting => Secrets => Actions
+  - Repository secrets
+    - GKE_PROJECT
+    - GKE_SA_KEY
+      - 服務帳戶金鑰JSON的base64字串
 
 ## 建立Actions設定檔yml
 
