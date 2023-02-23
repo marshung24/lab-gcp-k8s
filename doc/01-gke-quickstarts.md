@@ -33,7 +33,7 @@ $ gcloud container clusters create-auto hello-cluster \
 > - `COMPUTE_REGION`如台灣區`asia-east1`
 > - 本範例`create-auto`使用預設參數
 
-- 取得憑證
+- 取得K8S使用憑證
 ```sh
 $ gcloud container clusters get-credentials hello-cluster \
     --region COMPUTE_REGION
@@ -58,15 +58,17 @@ $ kubectl expose deployment hello-server --type LoadBalancer --port 80 --target-
 > 使用`Load Balancer`管理網路連線
 
 ## 查看結果
-- 查看pod
+- 查看pods名稱
 ```sh
-$ kubectl get pods
+$ kubectl get pods --namespace NAMESPACE
 ```
+> `NAMESPACE` 為pods命名空間
 
 - 查看service
 ```sh
-$ kubectl get service hello-server
+$ kubectl get service hello-server --namespace NAMESPACE
 ```
+> `NAMESPACE` 為pods命名空間
 
 - 查看目標服務網頁
 ```sh
@@ -89,7 +91,13 @@ $ gcloud container clusters delete hello-cluster \
 > - `hello-cluster`為待移除Cluster名稱
 > - `COMPUTE_REGION`為待移除Cluster區域，如台灣區`asia-east1`
 
-
+## 前往容器內部執行指令
+```
+$ kubectl exec -it PODS_NAME -c CONAINER_NAME --namespace NAMESPACE -- sh
+```
+> - `PODS_NAME` 為pods名稱
+> - `CONAINER_NAME` 為Containers名稱
+> - `NAMESPACE` 為pods命名空間
 
 ## 參考
 - [Quickstarts-Deploy an app to a GKE cluster](https://cloud.google.com/kubernetes-engine/docs/)
@@ -98,6 +106,8 @@ $ gcloud container clusters delete hello-cluster \
 
 ## 日誌
 - 20220929: Mars.Hung整理GKE快速入門步驟
+- 20230223: Mars.Hung補充namespace及前往容器內部執行指令
+
 
 
 

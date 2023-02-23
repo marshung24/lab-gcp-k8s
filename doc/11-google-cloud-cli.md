@@ -36,8 +36,15 @@ gcloud
   # 使用SSH連線時
   $ gcloud init --console-only
   ```
-## 設定預設專案/帳戶
+
+## 帳號認證
+```sh
+# CLI模式
+$ gcloud auth login --no-launch-browser
 ```
+
+## 設定預設專案/帳戶
+```sh
 $ gcloud config set project <PROJECT-ID>
 
 $ gcloud config set account <ACCOUNT>
