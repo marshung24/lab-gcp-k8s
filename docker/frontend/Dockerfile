@@ -1,3 +1,7 @@
+# Vue App編譯+包暈像檔 範本
+# Mars.Hung 2022-10-05
+# @todo 結合自定最佳化nginx.conf
+
 # Build App Stage: Build Vue App by nodejs image.
 FROM node:16-alpine as Build-App
 RUN mkdir -p /app
